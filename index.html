@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My College Notes Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-header">
+    <h2>📁 College Notes Sharing Site</h2>
+    <button class="my-btn" onclick="openUploadForm()">+ Upload Notes</button>
+  </div>
+
+  <div class="container">
+    <div class="intro-box">
+      <h3>Welcome to my notes collection!</h3>
+      <p>Click on any folder below to open it and download lecture notes and study material. You can also upload your own files here.</p>
+    </div>
+
+    <div id="allFoldersSection">
+      <h3>Subject Folders:</h3>
+      <div class="folders-list" id="foldersContainer"></div>
+    </div>
+
+    <div id="folderViewSection">
+      <button class="my-btn btn-red" onclick="goBackHome()">← Back to Folders</button>
+      <br><br>
+      <h3 id="currentFolderHeading" style="color: #ffcc00;">Folder Notes</h3>
+      <div id="folderFilesList"></div>
+    </div>
+  </div>
+
+  <div class="popup-bg" id="uploadModal">
+    <div class="popup-box">
+      <h3>Upload Note / PDF</h3>
+      <form id="noteUploadForm" onsubmit="handleUpload(event)">
+        <div class="field">
+          <label>Select Subject Folder:</label>
+          <select id="folderSelect" required>
+            <option value="web-tech">Web Technology in HTML and CSS</option>
+            <option value="databases">Databases SQL</option>
+            <option value="dsa-java">DSA in Java</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Topic / Title:</label>
+          <input type="text" id="noteTitle" placeholder="e.g. Java Loops or SQL Joins" required>
+        </div>
+
+        <div class="field">
+          <label>Your Name:</label>
+          <input type="text" id="authorName" placeholder="e.g. Student" required>
+        </div>
+
+        <div class="field">
+          <label>Short Description:</label>
+          <textarea id="noteDesc" rows="3" placeholder="What is inside this PDF?" required></textarea>
+        </div>
+
+        <div class="field">
+          <label>Attach PDF File:</label>
+          <input type="file" id="pdfFileInput" required>
+        </div>
+
+        <div style="text-align: right; margin-top: 15px;">
+          <button type="button" class="my-btn btn-red" onclick="closeUploadForm()">Cancel</button>
+          <button type="submit" class="my-btn">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    Made for academic notes sharing • Simple Dark Theme
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
